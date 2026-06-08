@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="FIT4110 Lab04 IoT Docker Verification" tests="11" time="0.062">
+  <testsuite name="01_Functional / GET health returns 200" id="f89c171a-9b6f-4e6f-8973-d36117a9e178" timestamp="2026-06-08T14:02:02.837Z" tests="3" failures="0" errors="0" time="0.024">
+    <testcase name="Status code is 200" time="0.024" classname="01FunctionalGetHealthReturns200"/>
+    <testcase name="Response has status ok" time="0.024" classname="01FunctionalGetHealthReturns200"/>
+    <testcase name="Response has service name and version" time="0.024" classname="01FunctionalGetHealthReturns200"/>
+  </testsuite>
+  <testsuite name="01_Functional / POST valid temperature reading returns 201" id="664e93ce-246e-4022-968d-2035917fb9de" timestamp="2026-06-08T14:02:02.837Z" tests="3" failures="0" errors="0" time="0.007">
+    <testcase name="Status code is 201" time="0.007" classname="01FunctionalPostValidTemperatureReadingReturns201"/>
+    <testcase name="Response follows created-reading schema" time="0.007" classname="01FunctionalPostValidTemperatureReadingReturns201"/>
+    <testcase name="Response device_id matches request" time="0.007" classname="01FunctionalPostValidTemperatureReadingReturns201"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET latest readings returns items array" id="3a636080-a4e1-477e-954e-1666ef6d5739" timestamp="2026-06-08T14:02:02.837Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="Status code is 200" time="0.004" classname="01FunctionalGetLatestReadingsReturnsItemsArray"/>
+    <testcase name="Response has items array" time="0.004" classname="01FunctionalGetLatestReadingsReturnsItemsArray"/>
+  </testsuite>
+  <testsuite name="01_Functional / GET reading by saved reading_id returns 200" id="4e5760fa-5493-45be-ac7f-d2689ea4a690" timestamp="2026-06-08T14:02:02.837Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="Status code is 200" time="0.004" classname="01FunctionalGetReadingBySavedReadingIdReturns200"/>
+    <testcase name="Response reading_id matches saved variable" time="0.004" classname="01FunctionalGetReadingBySavedReadingIdReturns200"/>
+  </testsuite>
+  <testsuite name="02_Auth / POST reading without token returns 401" id="39ba7465-c61e-4d89-a365-a30b255887fb" timestamp="2026-06-08T14:02:02.837Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="Missing token returns 401" time="0.003" classname="02AuthPostReadingWithoutTokenReturns401"/>
+  </testsuite>
+  <testsuite name="02_Auth / POST reading with wrong token returns 401" id="ec52b1a9-17ac-433e-8d88-09c942c1d304" timestamp="2026-06-08T14:02:02.837Z" tests="1" failures="0" errors="0" time="0.005">
+    <testcase name="Wrong token returns 401" time="0.005" classname="02AuthPostReadingWithWrongTokenReturns401"/>
+  </testsuite>
+  <testsuite name="03_Negative / POST reading missing device_id returns validation error" id="18bbdf94-edd1-488b-b498-06fd80c4f917" timestamp="2026-06-08T14:02:02.837Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="Missing required field returns 422" time="0.003" classname="03NegativePostReadingMissingDeviceIdReturnsValidationError"/>
+  </testsuite>
+  <testsuite name="03_Negative / POST reading with value as string returns validation error" id="708fd8bf-9eb6-48f9-b7eb-aca1dd2bcec2" timestamp="2026-06-08T14:02:02.837Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="Wrong data type returns 422" time="0.003" classname="03NegativePostReadingWithValueAsStringReturnsValidationError"/>
+  </testsuite>
+  <testsuite name="04_Boundary_Reliability / POST boundary temperature 80 is accepted with warning" id="2f964154-e0ad-4532-98f4-6dacb6662c36" timestamp="2026-06-08T14:02:02.837Z" tests="2" failures="0" errors="0" time="0.004">
+    <testcase name="Boundary value 80 returns 201" time="0.004" classname="04BoundaryReliabilityPostBoundaryTemperature80IsAcceptedWithWarning"/>
+    <testcase name="High temperature response includes warning header" time="0.004" classname="04BoundaryReliabilityPostBoundaryTemperature80IsAcceptedWithWarning"/>
+  </testsuite>
+  <testsuite name="04_Boundary_Reliability / POST boundary temperature 81 is rejected" id="e8ef17b4-1e82-46d7-8b1e-e8899f4cc2cd" timestamp="2026-06-08T14:02:02.837Z" tests="1" failures="0" errors="0" time="0.003">
+    <testcase name="Boundary value 81 returns 422" time="0.003" classname="04BoundaryReliabilityPostBoundaryTemperature81IsRejected"/>
+  </testsuite>
+  <testsuite name="04_Boundary_Reliability / GET health responds under 1000ms on local/container" id="e78c0826-b51f-411c-a5e6-2223999594e1" timestamp="2026-06-08T14:02:02.837Z" tests="2" failures="0" errors="0" time="0.002">
+    <testcase name="Response time is below 1000ms" time="0.002" classname="04BoundaryReliabilityGetHealthRespondsUnder1000MsOnLocalContainer"/>
+    <testcase name="Health endpoint is reachable" time="0.002" classname="04BoundaryReliabilityGetHealthRespondsUnder1000MsOnLocalContainer"/>
+  </testsuite>
+</testsuites>
