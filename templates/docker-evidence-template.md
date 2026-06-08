@@ -2,9 +2,9 @@
 
 ## Team
 
-- Team name: 
-- Service:
-- Image tag:
+- Team name: team-gate (AccessGate)
+- Service: Access Gate service
+- Image tag: fit4110/access-gate:lab04
 
 ## 1. Build evidence
 
@@ -240,5 +240,5 @@ FIT4110 Lab04 IoT Docker Verification
 
 ## 5. Notes
 
-- Known limitation:
-- Next step for Lab 05:
+- Known limitation: Access Gate service hiện tại mới chỉ đóng gói chạy trên một container độc lập. Dữ liệu xác thực và phân quyền truy cập cổng có thể mới chỉ đang dùng in-memory hoặc mock data chứ chưa được tích hợp hệ quản trị cơ sở dữ liệu (Database) thực tế.
+- Next step for Lab 05: Nâng cấp lên sử dụng Docker Compose để chạy Access Gate service song song với một Database container (ví dụ: PostgreSQL hoặc Redis). Đồng thời sẵn sàng cho Plug-a-thon để giao tiếp chéo với các service khác trong nền tảng Smart Campus.
